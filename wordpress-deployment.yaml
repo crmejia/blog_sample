@@ -26,15 +26,15 @@ spec:
       labels:
         app: wordpress
         tier: frontend
-  spec:
-    containers:
-    - image: wordpress:latest
-      name: wordpress
-      env:
-      - name: WORDPRESS_DB_HOST
-        value: wordpress-mysql
-      - name: WORDPRESS_DB_PASSWORD
-        value: my-secret-pw
-      ports:
-      - containerPort: 80
+    spec:
+      containers:
+      - image: wordpress:4.6.1-apache
         name: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: wordpress-mysql
+        - name: WORDPRESS_DB_PASSWORD
+          value: my-secret-pw
+        ports:
+        - containerPort: 80
+          name: wordpress
